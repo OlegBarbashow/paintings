@@ -17,11 +17,11 @@ const sliders = (slides, dir, next, prev) => {
         });
 
         items[slideIndex - 1].style.display = 'block';
-        
+
     }
 
     showSlides(slideIndex);
-    
+
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
@@ -42,7 +42,7 @@ const sliders = (slides, dir, next, prev) => {
             items[slideIndex - 1].classList.add('slideInLeft');
         });
     }catch (e) {
-        
+
     }
 
     function activateAnimation() {
@@ -69,18 +69,6 @@ const sliders = (slides, dir, next, prev) => {
     items[0].parentNode.addEventListener('mouseleave', () => {
         activateAnimation()
     });
-
-
-
-
-
-
-
-
-
-
-
-
 };
 
 export default sliders;
