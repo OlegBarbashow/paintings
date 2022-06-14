@@ -1,9 +1,16 @@
 const mask = (selector) => {
+
+    function setCaretPos() {
+        if(this.selectionStart < 2) {
+            this.selectionStart = 2;
+        }
+    }
+
     let setCursorPosition = (pos, elem) => {
         elem.focus();
 
         if (elem.setSelectionRange) {
-            elem.setSelectionRange(pos, pos)
+            elem.setSelectionRange(pos, pos);
         } else if (elem.createTextRange) {
             let range = elem.createTextRange();
 
@@ -31,9 +38,9 @@ const mask = (selector) => {
         if (event.type === 'blur') {
             if (this.value.length === 2) {
                 this.value = '';
-            } else {
-                setCursorPosition(this.value.length, this);
             }
+        } else {
+            setCursorPosition(this.value.length, this);
         }
     }
 
@@ -43,36 +50,8 @@ const mask = (selector) => {
        input.addEventListener('input', creatMask);
        input.addEventListener('focus', creatMask);
        input.addEventListener('blur', creatMask);
+       input.addEventListener('click', setCaretPos);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default mask;

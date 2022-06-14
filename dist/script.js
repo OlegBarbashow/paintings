@@ -4371,6 +4371,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mask = function mask(selector) {
+  function setCaretPos() {
+    if (this.selectionStart < 2) {
+      this.selectionStart = 2;
+    }
+  }
+
   var setCursorPosition = function setCursorPosition(pos, elem) {
     elem.focus();
 
@@ -4402,9 +4408,9 @@ var mask = function mask(selector) {
     if (event.type === 'blur') {
       if (this.value.length === 2) {
         this.value = '';
-      } else {
-        setCursorPosition(this.value.length, this);
       }
+    } else {
+      setCursorPosition(this.value.length, this);
     }
   }
 
@@ -4413,6 +4419,7 @@ var mask = function mask(selector) {
     input.addEventListener('input', creatMask);
     input.addEventListener('focus', creatMask);
     input.addEventListener('blur', creatMask);
+    input.addEventListener('click', setCaretPos);
   });
 };
 
