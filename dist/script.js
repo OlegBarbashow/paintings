@@ -4738,10 +4738,13 @@ var showMoreStylesServer = function showMoreStylesServer(trigger, wrapper) {
   });
 
   function createCards(response) {
-    response.forEach(function (item) {
+    response.forEach(function (_ref) {
+      var src = _ref.src,
+          title = _ref.title,
+          link = _ref.link;
       var card = document.createElement('div');
       card.classList.add('animated', 'fadeInUp', 'col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1');
-      card.innerHTML = " \n                <div class=\"styles-block\">\n                    <img src=".concat(item.src, " alt=\"style\">\n                    <h4>").concat(item.title, "</h4>\n                    <a href=").concat(item.link, ">\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</a>\n                </div>");
+      card.innerHTML = " \n                <div class=\"styles-block\">\n                    <img src=".concat(src, " alt=\"style\">\n                    <h4>").concat(title, "</h4>\n                    <a href=").concat(link, ">\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</a>\n                </div>");
       document.querySelector(wrapper).append(card);
     });
   }
