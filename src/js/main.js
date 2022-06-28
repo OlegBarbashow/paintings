@@ -6,6 +6,7 @@ import checkTextInputs from "./modules/checkTextInputs";
 // import showMoreStyles from "./modules/showMoreStyles";
 import showMoreStylesServer from "./modules/showMoreStylesServer";
 import calc from "./modules/calc";
+import filter from "./modules/filter";
 
 window.addEventListener('DOMContentLoaded', () =>{
    'use strict';
@@ -20,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () =>{
    // showMoreStyles('.button-styles', '.styles-2');
    showMoreStylesServer('.button-styles', '#styles .row');
    calc('#size', '#material', '#options', '.promocode', '.calc-price');
-
+   filter();
 
 
 
