@@ -4459,6 +4459,15 @@ var accordion = function accordion(triggerSelector) {
   var btns = document.querySelectorAll(triggerSelector);
   btns.forEach(function (btn) {
     btn.addEventListener('click', function () {
+      var _this = this;
+
+      btns.forEach(function (item) {
+        if (_this !== item) {
+          item.classList.remove('active-style');
+          item.nextElementSibling.classList.remove('active-content');
+          item.nextElementSibling.style.maxHeight = '0px';
+        }
+      });
       this.classList.toggle('active-style');
       this.nextElementSibling.classList.toggle('active-content');
 
